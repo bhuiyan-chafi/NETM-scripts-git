@@ -2,6 +2,10 @@
 echo "Deleting previous configuration..."
 ip -all netns delete
 ip link del v-net-0
+# so that every packets are forwarded without checking rules
+# iptables -P FORWARD ACCEPT
+# so that the packets doesn't go through security checks
+sysctl -w net.bridge.bridge-nf-call-iptables=0
 sleep 5
 
 echo "Creating namespaces..."
