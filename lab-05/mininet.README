@@ -9,9 +9,11 @@ Following steps may be required to run a python mininet script:
 2. Install openvswitch controller
 
 > sudo apt install openvswitch-testcontroller
-
+> sudo killall ovs-testcontroller (to stop)
 3. Resolve conflicts among controllers
 
 > sudo fuser -k 6653/tcp
+
+
 
 

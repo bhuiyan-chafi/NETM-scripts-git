@@ -40,16 +40,16 @@ class MyTopology(Topo):
         h92 = self.addHost('h92',ip='10.10.9.2',mac='00:00:00:00:00:92')
 
         # Add switches
-        s0 = self.addSwitch('s0', dpid="1000000000000000")
-        s1 = self.addSwitch('s1', dpid="1000000000000001")
-        s2 = self.addSwitch('s2', dpid="1000000000000002")
-        s3 = self.addSwitch('s3', dpid="1000000000000003")
-        s4 = self.addSwitch('s4', dpid="1000000000000004")
-        s5 = self.addSwitch('s5', dpid="1000000000000005")
-        s6 = self.addSwitch('s6', dpid="1000000000000006")
-        s7 = self.addSwitch('s7', dpid="1000000000000007")
-        s8 = self.addSwitch('s8', dpid="1000000000000008")
-        s9 = self.addSwitch('s9', dpid="1000000000000009")
+        s0 = self.addSwitch('s0', dpid="1000000000000000",failMode='standalone')
+        s1 = self.addSwitch('s1', dpid="1000000000000001",failMode='standalone')
+        s2 = self.addSwitch('s2', dpid="1000000000000002",failMode='standalone')
+        s3 = self.addSwitch('s3', dpid="1000000000000003",failMode='standalone')
+        s4 = self.addSwitch('s4', dpid="1000000000000004",failMode='standalone')
+        s5 = self.addSwitch('s5', dpid="1000000000000005",failMode='standalone')
+        s6 = self.addSwitch('s6', dpid="1000000000000006",failMode='standalone')
+        s7 = self.addSwitch('s7', dpid="1000000000000007",failMode='standalone')
+        s8 = self.addSwitch('s8', dpid="1000000000000008",failMode='standalone')
+        s9 = self.addSwitch('s9', dpid="1000000000000009",failMode='standalone')
 	
         # Add host to device links
         self.addLink(h01, s0)
@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
     #Initialization of Mininet topology
     topo = MyTopology()
-    cont = RemoteController('c', '172.17.0.2')
+    cont = RemoteController('c', '172.17.0.2',port=6653)
     
     #Creation of Mininet topology
     net = Mininet(topo,controller=None)
