@@ -11,7 +11,7 @@ sleep 2
 
 echo
 echo "--- PING from HOST to GOOGLE..."
-ping -c 3 10.10.10.1
+ping -c 3 8.8.8.8
 sleep 2
 
 

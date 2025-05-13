@@ -4,7 +4,7 @@ echo "----Add new IP to lab2-br1 from the same network of the namespaces----\n"
 
 ip route add 10.10.10.0/24 dev lab2-br1
 sleep 2
-
+# after this the packets reach the namespaces but the replies does not reach the host machine
 echo "----Ping all the namespaces----\n"
 
 ping -c 1 -w 1 10.10.10.1

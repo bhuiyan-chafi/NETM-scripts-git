@@ -27,7 +27,7 @@ def generate_packets():
 
         # Packet size - float value is truncated (+1 to compensate), then effective length is higher than theory
         packet_length = random.expovariate(lambda_length)
-        packet_bytes = int(packet_length) + 1
+        packet_bytes = int(packet_length)
 
         # IP packet creation with SCAPY - proto is required otherwise wireshark does not recognize the packet
         # Python strings with b"..." are interpreted as strings of bytes
