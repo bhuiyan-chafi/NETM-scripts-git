@@ -1,18 +1,19 @@
 # Credits
+
 This lab and script credit goes to our dear profesor: Alessio Giorgetti. Link to the: [github](https://github.com/alessiocnit/NETM-scripts-git)
 
-
 # Hosts
+
     10.10.100.1 h1
     10.10.200.2 h2
     10.10.100.3 h3
     10.10.200.4 h4
 
-
 # How to the run the Network without the mininet
+
     cd project-3
-    chmod +x bash.sh
-    sudo ./bash.sh
+    chmod +x topology.sh
+    sudo ./topology.sh
 
 # Playing with the network
 
@@ -30,7 +31,6 @@ Hosts of the same VLAN can ping each other only:
     sudo ip netns exec h1 ping 10.10.200.4 -- Should work --
 
     sudo ip netns exec h1 ping 10.10.200.4 -- x Should work --
-
 
 # Running the topology in mininet
 
@@ -78,9 +78,10 @@ Everything should work fine now.
 
     h1 traceroute h3
 
-In our topology all of the “hops” between h1 and h3 are pure Layer-2 switches — there are no routers to decrement the IP TTL or generate ICMP “Time Exceeded” messages. Traceroute works by sending packets with TTL=1,2,3,… and listening for the ICMP “TTL exceeded” replies from each router along the path. Because OVS in “standalone” (or “normal”) mode simply bridges at L2 and does not decrement the IPv4 TTL on transit, no intermediate device ever sends back a TTL-expired message, so your traceroute probes just time out (showing “* * *”).
+In our topology all of the “hops” between h1 and h3 are pure Layer-2 switches — there are no routers to decrement the IP TTL or generate ICMP “Time Exceeded” messages. Traceroute works by sending packets with TTL=1,2,3,… and listening for the ICMP “TTL exceeded” replies from each router along the path. Because OVS in “standalone” (or “normal”) mode simply bridges at L2 and does not decrement the IPv4 TTL on transit, no intermediate device ever sends back a TTL-expired message, so your traceroute probes just time out (showing “\* \* \*”).
 
 ## iperf measurements
+
 Run the xterm from h1 and h3 (inside mininet):
 
     xterm h1 h3
@@ -94,4 +95,3 @@ Run the client from h3:
     iperf -c 10.10.100.1 #ip of h1
 
 Now you can test with different aspects such as: udp client, rating bandwidth, several sessions(disscussed in the presentation).s
-
